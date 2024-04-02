@@ -1,21 +1,11 @@
 # PTQ-Papers
 
-This repo contains a comprehensive paper list of **Model Quantization** for efficient deep learning on AI conferences/journals/arXiv. As a highlight, we categorize the papers in terms of model structures and application scenarios, and label the quantization methods with keywords. <br>
-
-This repo is being actively updated, and contributions in any form to make this list more comprehensive are welcome. Special thanks to collaborator [Zhikai Li](https://github.com/zkkli), and all researchers who have contributed to this repo! <br> 
-
-If you find this repo useful, please consider **★STARing** and feel free to share it with others! <br>
-
-**[Update: Nov, 2023]** Add new papers from NeurIPS-23. <br>
-**[Update: Oct, 2023]** Add new papers from ICCV-23. <br>
-**[Update: Jul, 2023]** Add new papers from AAAI-23 and ICML-23. <br>
-**[Update: Jun, 2023]** Add new arXiv papers uploaded in May 2023, especially the hot LLM quantization field. <br>
-**[Update: Jun, 2023]** Reborn this repo! New style, better experience! <br>
+- 包括了题目，会议/时间，机构，主要方法/贡献，所用的模型。
 
 ---
 ## Overview
 
-- [Awesome-Quantization-Papers ](#awesome-quantization-papers-)
+- [PTQ-Papers ](#PTQ-Papers-)
   - [Overview](#overview)
   - [Survey](#survey)
   - [Transformer-based Models](#transformer-based-models)
@@ -30,7 +20,7 @@ If you find this repo useful, please consider **★STARing** and feel free to sh
       - [Point Cloud](#point-cloud)
   - [References](#references)
 
-**Keywords**: **`PTQ`**: post-training quantization | **`Non-uniform`**: non-uniform quantization | **`MP`**: mixed-precision quantization | **`Extreme`**: binary or ternary quantization
+
 
 ---
 
@@ -44,28 +34,68 @@ If you find this repo useful, please consider **★STARing** and feel free to sh
 
 ## Transformer-based Models
 ### Vision Transformers
-- "LRP-QViT: Mixed-Precision Vision Transformer Quantization via Layer-wise Relevance Propagation", arXiv, 2023. [[paper](http://arxiv.org/abs/2401.11243)] [**`PTQ`**] [**`MP`**] 
-- "MPTQ-ViT: Mixed-Precision Post-Training Quantization for Vision Transformer", arXiv, 2023. [[paper](http://arxiv.org/abs/2401.14895)] [**`PTQ`**] [**`MP`**] 
-- "I-ViT: Integer-only Quantization for Efficient Vision Transformer Inference", ICCV, 2023. [[paper](https://openaccess.thecvf.com/content/ICCV2023/papers/Li_I-ViT_Integer-only_Quantization_for_Efficient_Vision_Transformer_Inference_ICCV_2023_paper.pdf)] [[code](https://github.com/zkkli/I-ViT)]
-- "RepQ-ViT: Scale Reparameterization for Post-Training Quantization of Vision Transformers", ICCV, 2023. [[paper](https://openaccess.thecvf.com/content/ICCV2023/papers/Li_RepQ-ViT_Scale_Reparameterization_for_Post-Training_Quantization_of_Vision_Transformers_ICCV_2023_paper.pdf)] [[code](https://github.com/zkkli/RepQ-ViT)] [**`PTQ`**]
-- "QD-BEV: Quantization-aware View-guided Distillation for Multi-view 3D Object Detection", ICCV, 2023. [[paper](https://openaccess.thecvf.com/content/ICCV2023/papers/Zhang_QD-BEV__Quantization-aware_View-guided_Distillation_for_Multi-view_3D_Object_Detection_ICCV_2023_paper.pdf)]
-- "BiViT: Extremely Compressed Binary Vision Transformers", ICCV, 2023. [[paper](https://openaccess.thecvf.com/content/ICCV2023/papers/He_BiViT_Extremely_Compressed_Binary_Vision_Transformers_ICCV_2023_paper.pdf)] [**`Extreme`**]
-- "Jumping through Local Minima: Quantization in the Loss Landscape of Vision Transformers", ICCV, 2023. [[paper](https://openaccess.thecvf.com/content/ICCV2023/papers/Frumkin_Jumping_through_Local_Minima_Quantization_in_the_Loss_Landscape_of_ICCV_2023_paper.pdf)]
-- "PackQViT: Faster Sub-8-bit Vision Transformers via Full and Packed Quantization on the Mobile", NeurIPS, 2023. [[paper](https://neurips.cc/virtual/2023/poster/71880)]
-- "Oscillation-free Quantization for Low-bit Vision Transformers", ICML, 2023. [[paper](https://openreview.net/forum?id=DihXH24AdY)] [[code](https://github.com/nbasyl/OFQ)]
-- "PSAQ-ViT V2: Towards Accurate and General Data-Free Quantization for Vision Transformers", TNNLS, 2023. [[paper](https://arxiv.org/abs/2209.05687)] 
-- "Variation-aware Vision Transformer Quantization", arXiv, 2023. [[paper](http://arxiv.org/abs/2307.00331)]
-- "NoisyQuant: Noisy Bias-Enhanced Post-Training Activation Quantization for Vision Transformers", CVPR, 2023. [[paper](https://openaccess.thecvf.com/content/CVPR2023/papers/Liu_NoisyQuant_Noisy_Bias-Enhanced_Post-Training_Activation_Quantization_for_Vision_Transformers_CVPR_2023_paper.pdf)]  [**`PTQ`**]
-- "Boost Vision Transformer with GPU-Friendly Sparsity and Quantization", CVPR, 2023. [[paper](https://openaccess.thecvf.com/content/CVPR2023/papers/Yu_Boost_Vision_Transformer_With_GPU-Friendly_Sparsity_and_Quantization_CVPR_2023_paper.pdf)] 
-- "Q-DETR: An Efficient Low-Bit Quantized Detection Transformer", CVPR, 2023. [[paper](http://openaccess.thecvf.com/content/CVPR2023/html/Xu_Q-DETR_An_Efficient_Low-Bit_Quantized_Detection_Transformer_CVPR_2023_paper.html)]
-- "Output Sensitivity-Aware DETR Quantization", 2023. [[paper](https://practical-dl.github.io/2023/extended_abstract/4/CameraReady/4.pdf)]
-- "Q-HyViT: Post-Training Quantization for Hybrid Vision Transformer with Bridge Block Reconstruction", arXiv, 2023. [[paper](https://arxiv.org/abs/2303.12557)]  [**`PTQ`**]
-- "Q-ViT: Accurate and Fully Quantized Low-bit Vision Transformer", NeurIPS, 2022. [[paper](https://openreview.net/forum?id=fU-m9kQe0ke)] [[code](https://github.com/yanjingli0202/q-vit)]
-- "Patch Similarity Aware Data-Free Quantization for Vision Transformers", ECCV, 2022. [[paper](https://www.ecva.net/papers/eccv_2022/papers_ECCV/papers/136710154.pdf)] [[code](https://github.com/zkkli/psaq-vit)]  [**`PTQ`**]
-- "PTQ4ViT: Post-Training Quantization for Vision Transformers with Twin Uniform Quantization", ECCV, 2022. [[paper](https://www.ecva.net/papers/eccv_2022/papers_ECCV/papers/136720190.pdf)] [[code](https://github.com/hahnyuan/ptq4vit)]  [**`PTQ`**]
-- "FQ-ViT: Post-Training Quantization for Fully Quantized Vision Transformer", IJCAI, 2022. [[paper](https://arxiv.org/abs/2111.13824)]  [[code](https://github.com/megvii-research/FQ-ViT)]  [**`PTQ`**]
-- "Q-ViT: Fully Differentiable Quantization for Vision Transformer", arXiv, 2022. [[paper](https://arxiv.org/pdf/2201.07703.pdf)]
-- "Post-Training Quantization for Vision Transformer", NeurIPS, 2021. [[paper](https://openreview.net/forum?id=9TX5OsKJvm)]  [**`PTQ`**]
+- #### LRP-QViT: Mixed-Precision Vision Transformer Quantization via Layer-wise Relevance Propagation. [[paper](http://arxiv.org/abs/2401.11243)]
+	- 会议/时间：arXiv, 2023
+	- 机构：Rochester Institute of Technology
+	- 模型：ViT, DeiT, Swin
+	- 方法：1.用层级相关性传播对所有层分配得分，以得分分配不同层量化位宽。<br>2.改进RepQ-ViT：引入剪裁的channel-wise量化，用于经过LayerNorm的激活，以消除离群值，并改善固定位宽和混合精度量化的性能。
+
+-  #### MPTQ-ViT: Mixed-Precision Post-Training Quantization for Vision Transformer. [[paper](http://arxiv.org/abs/2401.14895)] 
+	-  会议/时间：arXiv, 2023
+	-  机构：National Taiwan University
+	- 模型：ViT, DeiT, Swin
+	-  方法：MPTQ-ViT解决了Transformers的PTQ混合精度量化的几个问题：<br>1.通过使用带有bias的平滑量化，解决了激活的不对称分布减少clamping loss的问题；<br>2.提出了一种基于数据的机制，用于自动确定post-GeLU值的缩放因子(SFs)；<br>3.设计了一种综合考虑模型性能和压缩性能的选择度量，使用贪婪策略逐层确定权重和激活的位宽。方法适用于ViT、DeiT和Swin等模型。
+
+- #### RepQ-ViT: Scale Reparameterization for Post-Training Quantization of Vision Transformers. [[paper](https://openaccess.thecvf.com/content/ICCV2023/papers/Li_RepQ-ViT_Scale_Reparameterization_for_Post-Training_Quantization_of_Vision_Transformers_ICCV_2023_paper.pdf)] [[code](https://github.com/zkkli/RepQ-ViT)]]
+	- 会议/时间：ICCV, 2023
+	- 机构：Institute of Automation
+	- 模型：ViT, DeiT, Swin
+	- 方法：将PTQ的量化和推断过程解耦。在训练时对post-LayerNorm和post-Softmax activations使用channel维的log√2量化来保持原始数据分布，通过可解释的尺度重参数化将其转换为简化的量化器应用于推理阶段，以适应推断时的硬件环境。
+
+- #### NoisyQuant: Noisy Bias-Enhanced Post-Training Activation Quantization for Vision Transformers. [[paper](https://openaccess.thecvf.com/content/CVPR2023/papers/Liu_NoisyQuant_Noisy_Bias-Enhanced_Post-Training_Activation_Quantization_for_Vision_Transformers_CVPR_2023_paper.pdf)]
+	- 会议/时间：CVPR, 2023
+	- 机构：Nanjing University
+	- 模型：ViT, DeiT, Swin, DETR
+	- 方法：对于Transformers中激活分布造成PTQ性能下降的问题，发现和证明了在量化之前，通过向激活添加从均匀分布中采样得到的固定噪声偏差，可以显著减少量化误差。基于此开发了量化器无关的增强方法NoisyQuant，使用固定的加性噪声偏差减少重尾分布量化误差。
+
+- #### Q-HyViT: Post-Training Quantization for Hybrid Vision Transformers with Bridge Block Reconstruction. [[paper](https://arxiv.org/abs/2303.12557))]
+	- 会议/时间：arXiv, 2023
+	- 机构：ETRI
+	- 模型：MVv1, MVv2, MF, EFv1, EFv2, MobileViTv1, MobileViTv2
+	- 方法：解决混合Transformers量化时的问题：高度动态的激活范围、桥接块中的零点溢出、多样化的归一方法、少于500万的参数数量。提出解决方法：基于Hessian矩阵来调整桥接层和非桥接层的粒度和方案，同时确定量化的最佳缩放因子。
+
+- #### Patch Similarity Aware Data-Free Quantization for Vision Transformers.  [[paper](https://www.ecva.net/papers/eccv_2022/papers_ECCV/papers/136710154.pdf)] [[code](https://github.com/zkkli/psaq-vit)]
+	- 会议/时间：ECCV, 2022
+	- 机构：Institute of Automation
+	- 模型：ViT-S, ViT-B, DeiT-T, DeiT-S, DeiT-B, Swin-T, Swin-S
+	- 方法：解决PTQ在用于Transformers时生成校准样本的问题。通过分析自注意力模块在输入为真实图像时的patch相似性，利用其差分熵来量化响应的多样性，通过核密度估计计算，确保梯度反向传播。差分熵被用作目标函数，优化高斯噪声以逼近真实图像，以此生成样本数据。
+
+- #### PTQ4ViT: Post-Training Quantization for Vision Transformers with Twin Uniform Quantization (2022). [[paper](https://www.ecva.net/papers/eccv_2022/papers_ECCV/papers/136720190.pdf)] [[code](https://github.com/hahnyuan/ptq4vit)] 
+	- 会议/期刊：ECCV, 2022
+	- 机构/大学：School of Computer Science, Peking University; School of Integrated Circuits, Peking University; Houmo AI
+	- 模型：ViT-S, ViT-B, DeiT-S, DeiT-B, Swin-T, Swin-S, Swin-B
+	- 背景：先前的训练后量化方法在视觉转换器上表现不佳，导致即使在8位量化中也有超过1%的精度下降。
+	- 贡献：
+		1. PTQ在视觉转换器上存在的问题是post-softmax和post-GELU激活的特殊分布和不准确的度量。
+		2. 提出了Twin Uniform Quantization来处理这些特殊分布，它可以在现有的硬件设备（包括CPU和GPU）上有效地处理。
+		3. 提出了使用Hessian引导的度量来确定最佳的缩放因子，这取代了不准确的度量。
+
+- #### FQ-ViT: Post-Training Quantization for Fully Quantized Vision Transformer.  [[paper](https://arxiv.org/abs/2111.13824)]  [[code](https://github.com/megvii-research/FQ-ViT)] 
+	- 会议/期刊：IJCAI, 2022
+	- 机构：MEGVII Technology
+	- 模型：ViT, DeiT, Swin
+	- 贡献：
+		1. 提出Power-of-Two Factor，通过逐层量化实现对LayerNorm输入的准确量化。
+		2. 提出了Log-Int-Softmax，对注意力图进行4位量化。将注意力图存储在极低的位数上，并用BitShift运算符替代乘法。在Softmax模块上实现了纯整数推断，极大减少了推理的资源消耗。
+
+- #### Post-training quantization for vision transformer. [[paper](https://openreview.net/forum?id=9TX5OsKJvm)] 
+  - 会议/期刊：NeurIPS, 2021
+  - 机构/大学：1. Peking University 2. Noah's Ark Lab, Huawei Technologies 3. Peng Cheng Laboratory
+  - 模型：ViT-B, ViT-L, DeiT-S, DeiT-B, DETR
+  - 贡献：
+    1. 引入ranking loss用以保持自注意力值的相对顺序。
+    2. 根据特征多样性（通过注意力图和输出特征计算的核范数）确定每层的位宽。
+  - 方法：交替搜索权重和输入的量化区间，并引入偏差校正（bias correction）。
 
 
 [[Back to Overview](#overview)]
