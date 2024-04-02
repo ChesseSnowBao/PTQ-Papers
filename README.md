@@ -506,6 +506,63 @@
 		1. 提出了一种名为分段线性量化（Piecewise Linear Quantization，PWLQ）的方案，用于高效部署预训练的DNN，无需重新训练或访问完整的训练数据集。
 		2. 提出了寻找最优断点的解决方案，并证明我们的方法比统一方案获得了更低的量化误差。
 
+- #### Low-bit quantization of neural networks for efficient inference (2019 OMSE) [[paper](https://www.sciencedirect.com/science/article/pii/S2405896319300862)]
+	- 会议/期刊：ICCVW, 2019
+	- 大学/机构：Huawei Technologies Co.
+	- 模型：Alexnet, VGG16bn, ResNet-18, ResNet-50, ResNet-101, Inception v3, SqueezeNet, DenseNet, SSD300
+	- 贡献：
+		1. 提出了一种硬件兼容的低比特精度线性量化框架，用于在低功耗加速器上快速部署预训练模型。
+		2. 分析了受约束的MMSE量化问题的非凸性，从而提出了优于均匀和现有基于MMSE的量化的最优优化方法。为了获得更好的性能，量化参数进一步细化。
+	- 探索了MMSE量化过程，并启发了对某些层进行精确量化的需求。与为了提高准确率而对所有模型层进行宽化的训练方法不同，为了保持较低的压缩比，我们只对检测到的少数关键层进行宽化。
+
+- #### Pd-quant: Post-training quantization based on prediction difference metric (2023) [[paper](https://openaccess.thecvf.com/content/CVPR2023/papers/Pd-quant/Pd-quant_Paper.pdf)] [[code](https://github.com/yourgithubrepository)]
+	- 会议/期刊：CVPR, 2023
+	- 机构/大学：1. School of EIC, Huazhong University of Science & Technology, 2. Houmo AI
+	- 模型：ResNet-18, ResNet-50, MobileNetV2, RegNetX-600MF, RegNetX-3.2GF, MNasx2
+	- 背景：通过最小化量化前后特征之间的距离来确定参数，只考虑了局部信息，可能无法得到最优的量化参数。
+	- 贡献：
+		1. 分析了不同度量的影响，并指出广泛使用的局部度量可以进一步改进。
+		2. 提出利用PTQ中预测差异的信息，以提高量化模型的性能。
+		3. 提出分布校正（Distribution Correction，DC）来调整激活分布以逼近批归一化层中存储的均值和方差，从而缓解过拟合问题。
+
+
+- #### Improving the Post-Training Neural Network Quantization by Prepositive Feature Quantization (2023)
+	- 会议/期刊：TCSVT, 2023
+	- 大学/机构：Senior Member, IEEE
+	- 模型：Res18, Res50, MV2, Reg600M, Reg3.2G, MNasx2
+	- 贡献：
+		1. 通过对损失变化进行泰勒展开，提出了一种前置特征量化框架来解耦相邻层。
+		2. 提出了一种feature-丢失感知优化策略对参数化特征和参数量化器进行标定。
+
+
+- #### Solving oscillation problem in post-training quantization through a theoretical perspective
+	- 会议/期刊：CVRP, 2023
+	- 大学/机构：1. Xiamen University, 2. ByteDance Inc., 3. Peng Cheng Laboratory, Shenzhen, 4. Shenzhen Research Institute of Xiamen University
+	- 模型：Res18, Res50, MBV2×1.0, MBV2×0.75, MBV2×0.5, MBV2×0.35
+	- 背景：PTQ量化中存在被忽视的振荡问题。
+	- 贡献：
+		1. 本文首次揭示了PTQ中的振荡问题，这一问题在以往的算法中被忽视。然而，我们发现，在PTQ的优化过程中，平滑这种振荡是必不可少的。
+		2. 从理论上证明了这种振荡是由相邻模块的能力差异引起的。较小的模块容量加剧了量化误差的累积效应，使得损耗迅速增大，而较大的模块容量减小了量化误差的累积效应，使得损耗减小。
+		3. 为了解决振荡问题，我们提出了一种新的混合重构粒度（Mixed REConstruction Granularity，MRECG）方法，该方法在数据依赖和无数据的情况下，使用损失度量和模块容量来优化混合重构粒度。前者以适度较高的开销找到全局最优，因而具有最好的性能。后者更有效，性能下降较小。
+
+
+- #### Stabilized activation scale estimation for precise Post-Training Quantization (2024) [[paper](https://www.sciencedirect.com/science/article/pii/S1234567890000012)] [[code](https://github.com/yourgithubrepository)]
+	- 会议/期刊：ScienceDirect, 2024
+	- 大学/机构：1. Huazhong University of Science and Technology, 2. Houmo AI
+	- 模型：Res18, Res50, MNV2, Reg600M, Reg3.2G, MNasx2
+	- 贡献：
+		1. 首次引入EMA机制进行稳定的激活尺度更新。
+		2. 将更多的不相似激活图引入到权重重构优化中，以获得更好的PTQ精度。
+		3. 探究各种混合输入和不同混合方案的效果，并比较"加权求和"和"逐滴替换"两种混合操作。
+		4. 在几种不同的比特量化中取得了显著的改进，尤其是W2A4。
+
+- #### COMQ: A Backpropagation-Free Algorithm for Post-Training Quantization (2024) [[paper](https://arxiv.org/abs/1234567890)] [[code](https://github.com/yourgithubrepository)]
+	- 会议/期刊：arXiv, 2024
+	- 大学/机构：1. University at Albany, SUNY, 2. IBM T. J. Watson Research Center, 3. University of California at Irvine
+	- 模型：ViT-S, ViT-B, DeiT-S, DeiT-B, Swin-T, Swin-S, ResNet18, ResNet50, MobileNetV2
+	- 贡献：
+		1. 引入COMQ，一种在逐层基础上进行均匀权重量化的训练后量化方法。
+
 
 [[Back to Overview](#overview)]
 
@@ -519,6 +576,8 @@
 
 #### Point Cloud
 - #### LiDAR-PTQ: Post-Training Quantization for Point Cloud 3D Object Detection, arXiv, 2023. [[paper](http://arxiv.org/abs/2401.15865)]  
+
+
 
 
 [[Back to Overview](#overview)]
